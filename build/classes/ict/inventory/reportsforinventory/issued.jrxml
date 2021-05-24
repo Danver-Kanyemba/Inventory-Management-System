@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dbaf601d-f3f4-4a86-8299-3032f91178c7">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="354"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT products.serial_no, products.prod_name,products.model, products.description, products.category, employee.name,department.name, issued.date_issued FROM (((issued INNER JOIN products ON issued.product_serial_no = products.serial_no) INNER JOIN employee ON issued.employee_id = employee.id) INNER JOIN department ON employee.department_id = department.id)]]>
+	</queryString>
+	<field name="serial_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prod_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="model" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="category" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date_issued" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="88" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e39da538-e8c9-4049-8539-4d3028fec0dd" x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MARONDERA UNIVERSITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0d987521-0b21-4f36-ba91-f42ebfee5300" x="0" y="20" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OF AGRICULTURAL SCIENCES AND TECHNOLOGY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e82a47d6-9bd3-4aa7-893f-f7385149f879" x="0" y="40" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ICT DEPARTMENT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b0d448bd-0d1e-4b57-8e59-43999f366cd8" x="0" y="60" width="555" height="19"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Computer Equipment Allocation Form]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="a7b0d6ba-5102-48b6-baa5-afac3700e8af" x="0" y="0" width="555" height="34"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[I                                                                                                            acknowledge receipt of the following company property from MUAST ICT Department for business use only.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="982c2994-672d-41ff-842e-3f5212b6ba32" x="11" y="0" width="362" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="471" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="7e5cd833-6fc1-479f-a8c5-82390c7e3a89" x="0" y="0" width="555" height="213"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="2c2a425a-65af-4a58-aaec-5879124df748" x="11" y="10" width="42" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Make:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="89636116-4c2d-4078-abd3-1dadac237193" x="11" y="37" width="42" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Model:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="6c15acd5-3a8c-46d7-8365-1a864d6afd46" x="0" y="71" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="1605e3c8-32ef-4bf9-bf72-0bed1cdece59" x="0" y="93" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="f1e74c1d-ead6-4b65-9664-4de8ac0adafc" x="115" y="71" width="1" height="142"/>
+			</line>
+			<staticText>
+				<reportElement uuid="0db76c77-3169-4a9c-93c3-5ed4cf15addd" x="11" y="105" width="70" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Description:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cdcd4956-2151-4f2a-96bd-15061a231764" x="11" y="186" width="70" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Category:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="08d32f54-cb76-49ae-89aa-94a73c6d0280" x="11" y="72" width="70" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Item:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6995bcfd-31d1-44fc-9a87-dd29d39dbc5d" x="0" y="224" width="555" height="103"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[I understand that this property as been leaned to me and is the sole property of MUAST. I am expected to exercise due care in my use of this property and to utilse such property only authorisd purposes. Negligence in the care and use will be considered cause for disciplinary action.
+
+I also understand that the company property must be returned to MUAST at the time of my seperatin from employement or when it is requested and that I will be charged for any property issued and not returned to the Company.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="9a83cce5-dd0f-4626-9680-d4f8e6d3d1c1" x="0" y="327" width="555" height="138"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="4119fdfa-7e6b-4bd1-a3a9-04c184e86f8c" x="0" y="351" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="2c24d059-7749-4e24-acac-60b02599aac3" x="11" y="327" width="104" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Received By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a5106b50-fe55-4c6f-b97d-dbc1e187b4fe" x="304" y="327" width="104" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Received By:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="daaa295d-077b-4580-a1b1-44053f6229e5" x="281" y="327" width="1" height="138"/>
+			</line>
+			<staticText>
+				<reportElement uuid="f594c6fd-6cdc-4806-814a-d0cb5dfc1862" x="12" y="352" width="41" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c3f5e364-7105-4d24-ade3-a11610ff4fc3" x="12" y="373" width="69" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Department:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9f65cd0b-f422-4dff-b955-059dd0e4b0c6" x="12" y="394" width="69" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Appointment:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="750585b6-1523-4768-889b-bcc255083feb" x="12" y="414" width="58" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0bca64b6-f422-4e53-9dd8-34b7354a7e3f" x="12" y="435" width="41" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="81ff8b8b-386f-4168-851b-2e302f0471ea" x="304" y="414" width="58" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8cea22f-662c-4ae8-b895-2fb9afafc1c3" x="304" y="394" width="69" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Appointment:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d985d9a7-e4d8-434f-9163-2ba6ec78c9e2" x="304" y="352" width="41" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29b7a911-62d5-4c28-8097-9a2fcd34afa8" x="304" y="435" width="41" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e4075e28-7a6d-43f6-b89c-afd95b48bc01" x="304" y="373" width="69" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Department:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="41d29c90-c960-4f30-9897-1f36cae6585c" x="116" y="105" width="439" height="71"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cfeee290-ea2b-4803-b07a-bc77976143d1" x="70" y="37" width="471" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{model}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="76f4b5fc-84a9-4cc5-99e5-bb9164c77cd0" x="70" y="10" width="471" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{prod_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5c4f6893-c65b-4787-b27b-1fb188859e92" x="53" y="353" width="218" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0b000690-b53c-4307-b033-541d2095be0d" x="53" y="436" width="218" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{date_issued}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="4" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
