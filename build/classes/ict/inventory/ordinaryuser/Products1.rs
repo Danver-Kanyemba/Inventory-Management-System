@@ -1,1 +1,0 @@
-ict.inventory.ordinaryuser.productsAndClient
