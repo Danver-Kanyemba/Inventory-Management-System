@@ -176,14 +176,14 @@ public class AddEmployeeNameFrm extends javax.swing.JFrame {
                 queryAddDepartment.setString(1, employeeName);
                 queryAddDepartment.setString(2, DepartmentId);
                 queryAddDepartment.executeUpdate();
-                JOptionPane.showMessageDialog(null,"Employee added");
                 classForConnecting.conn.close();
+                this.dispose();
+                JOptionPane.showMessageDialog(null,"Employee added");
+
                
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(AddEmployeeNameFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
-            this.setVisible(false); 
-            this.dispose();
         }
         
     }//GEN-LAST:event_addEmployeeBtnActionPerformed

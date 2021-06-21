@@ -363,6 +363,7 @@ private String category_id, location_id;
 
     private void issueBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issueBtnActionPerformed
     try {
+        
         ConnectToDB classForConnecting = new ConnectToDB();
         String employeeName = employeeNameCombo.getSelectedItem().toString();
         String querySelectIdForDepartment = "SELECT id FROM employee where name='"+employeeName+"'";
@@ -383,7 +384,7 @@ private String category_id, location_id;
         queryIssueProduct.setString(5, location_id);
 
         queryIssueProduct.executeUpdate();
-        
+//        updating is available in products table
         String queryUpdateProd = "UPDATE products "
                 + "SET is_available =  ? WHERE serial_no= ? ";
         PreparedStatement updateProd = classForConnecting.conn.prepareStatement(queryUpdateProd);
@@ -391,8 +392,10 @@ private String category_id, location_id;
         updateProd.setString(2, serial_no);    
         updateProd.executeUpdate();
 
+        classForConnecting.conn.close();
+        this.dispose();
         JOptionPane.showMessageDialog(null,"Product Issued");
-        classForConnecting.conn.close();   
+        
 
     } catch (ClassNotFoundException ex) {
         Logger.getLogger(IssueProdFrm.class.getName()).log(Level.SEVERE, null, ex);

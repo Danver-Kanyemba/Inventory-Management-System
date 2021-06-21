@@ -326,10 +326,12 @@ String currentSelectedProductSerial;
                 + " WHERE serial_no = '"+currentSelectedProductSerial+"'";
                 Statement statemw = DBcon.conn.createStatement();
                 statemw.executeUpdate(queryUpdateProduct);
-                JOptionPane.showMessageDialog(null,"Record updated");
                 DBcon.conn.close();
                 classForConnecting.conn.close();               
                 classForConnecting2.conn.close();
+                this.dispose();
+                JOptionPane.showMessageDialog(null,"Record updated");
+
 
             }
         } catch (ClassNotFoundException ex) {

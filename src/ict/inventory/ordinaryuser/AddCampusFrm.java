@@ -133,14 +133,14 @@ public class AddCampusFrm extends javax.swing.JFrame {
                 PreparedStatement queryAddCategory = classForConnecting.conn.prepareStatement(queryAddDept);
                 queryAddCategory.setString(1, campusName);
                 queryAddCategory.executeUpdate();
-                JOptionPane.showMessageDialog(null,"Campus added");
                 classForConnecting.conn.close();
-               
+                this.dispose();
+                JOptionPane.showMessageDialog(null,"Campus added");
+
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(AddCampusFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
-            this.setVisible(false); 
-            this.dispose();
+          
         }
         
     }//GEN-LAST:event_addLocationBtnActionPerformed

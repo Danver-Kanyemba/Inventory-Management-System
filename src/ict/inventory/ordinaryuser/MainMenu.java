@@ -7,11 +7,14 @@ import ict.inventory.admin.updateProductFrm;
 import ict.inventory.connectionpackage.ConnectToDB;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -102,7 +105,6 @@ public class MainMenu extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -636,11 +638,10 @@ public class MainMenu extends javax.swing.JFrame {
         stockPanelLayout.setVerticalGroup(
             stockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(stockPanelLayout.createSequentialGroup()
-                .addGroup(stockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(issueStockBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(stockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(refreshBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(stockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(refreshBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(issueStockBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
                 .addGap(50, 50, 50))
@@ -1563,20 +1564,17 @@ public class MainMenu extends javax.swing.JFrame {
         categoryPanelLayout.setHorizontalGroup(
             categoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(categoryPanelLayout.createSequentialGroup()
-                .addGroup(categoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(categoryPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(updateCategoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addCategoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteCategoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73)
-                        .addComponent(refreshCategoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 167, Short.MAX_VALUE))
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+                .addComponent(updateCategoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addCategoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteCategoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(refreshCategoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         categoryPanelLayout.setVerticalGroup(
             categoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1936,11 +1934,20 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void reportForEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportForEmployeeActionPerformed
       
-
+String data = null;
          try {
+             File myObj = new File("./reportslocation.txt");
+             Scanner myReader = new Scanner(myObj);
+             while (myReader.hasNextLine()){
+                 data = myReader.nextLine();
+                 System.out.println(data);
+//                 JOptionPane.showMessageDialog(null,data);
+//                 myReader.close();
+             }
              //                      JasperDesign jdesign = JRXmlLoader.load("/InventoryICT/reportsforinventory/issued.jrxml");
-             JasperDesign jdesign = JRXmlLoader.load("/home/danverk/NetBeansProjects/ict_inventory/src/ict/inventory/reportsforinventory/issued.jrxml");
-             
+//             JasperDesign jdesign = JRXmlLoader.load("/home/danverk/NetBeansProjects/ict_inventory/src/ict/inventory/reportsforinventory/issued.jrxml");
+             JasperDesign jdesign = JRXmlLoader.load(data);
+ 
              ConnectToDB classForConnecting = new ConnectToDB();
              String queryForEmployeeAndProduct ="SELECT products.serial_no, products.prod_name,products.model, products.description, products.category, employee.name,department.name, issued.date_issued FROM (((issued INNER JOIN products ON issued.product_serial_no = products.serial_no) INNER JOIN employee ON issued.employee_id = employee.id) INNER JOIN department ON employee.department_id = department.id)";
              
@@ -1956,11 +1963,14 @@ public class MainMenu extends javax.swing.JFrame {
              JasperViewer.viewReport(jprint);
              
              classForConnecting.conn.close();
+             myReader.close();
          } catch (ClassNotFoundException ex) {
              Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
          } catch (SQLException ex) {
              Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
          } catch (JRException ex) {
+             Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (FileNotFoundException ex) {
              Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
          }
    
@@ -2046,11 +2056,13 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_stockTableMouseClicked
 
     private void refreshBtn1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshBtn1MouseExited
-        // TODO add your handling code here:
+        refreshBtn1.setBackground(java.awt.Color.blue);
+
     }//GEN-LAST:event_refreshBtn1MouseExited
 
     private void refreshBtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshBtn1MouseEntered
-        // TODO add your handling code here:
+        refreshBtn1.setBackground(java.awt.Color.gray);
+
     }//GEN-LAST:event_refreshBtn1MouseEntered
 
     private void refreshBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtn1ActionPerformed
@@ -2120,11 +2132,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_updateDepartmentsBtnActionPerformed
 
     private void issueStockBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_issueStockBtnMouseExited
-        // TODO add your handling code here:
+        issueStockBtn.setBackground(java.awt.Color.blue);
     }//GEN-LAST:event_issueStockBtnMouseExited
 
     private void issueStockBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_issueStockBtnMouseEntered
-        // TODO add your handling code here:
+        issueStockBtn.setBackground(java.awt.Color.gray);
     }//GEN-LAST:event_issueStockBtnMouseEntered
 
     private void issueStockBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issueStockBtnActionPerformed

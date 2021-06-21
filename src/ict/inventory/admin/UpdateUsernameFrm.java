@@ -82,6 +82,11 @@ public class UpdateUsernameFrm extends javax.swing.JFrame {
         updateUsernameBtnbyAdmin.setFocusPainted(false);
         updateUsernameBtnbyAdmin.setOpaque(true);
         updateUsernameBtnbyAdmin.setPreferredSize(new java.awt.Dimension(75, 29));
+        updateUsernameBtnbyAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateUsernameBtnbyAdminActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(103, 103, 103));
@@ -155,6 +160,10 @@ public class UpdateUsernameFrm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void updateUsernameBtnbyAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUsernameBtnbyAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateUsernameBtnbyAdminActionPerformed
 
     /**
      * @param args the command line arguments

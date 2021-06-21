@@ -133,14 +133,13 @@ public class AddLocationFrm extends javax.swing.JFrame {
                 PreparedStatement queryAddLocation = classForConnecting.conn.prepareStatement(queryAddDept);
                 queryAddLocation.setString(1, locationName);
                 queryAddLocation.executeUpdate();
-                JOptionPane.showMessageDialog(null,"Location added");
                 classForConnecting.conn.close();
-               
+                this.dispose();
+                JOptionPane.showMessageDialog(null,"Location added");
+
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(AddLocationFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
-            this.setVisible(false); 
-            this.dispose();
         }
         
     }//GEN-LAST:event_addLocationBtnActionPerformed

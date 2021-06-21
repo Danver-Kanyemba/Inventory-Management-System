@@ -138,14 +138,15 @@ private String locationNameForDB;
                 updatedep.setString(1, locationUpdate);
                 updatedep.setString(2, locationNameForDB);
                 updatedep.executeUpdate();
-                JOptionPane.showMessageDialog(null,"Location updated");               
                 classForConnecting.conn.close();
+                this.dispose();
+                JOptionPane.showMessageDialog(null,"Location updated");               
+
                
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(UpdateLocationFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
              this.setVisible(false); 
-                this.dispose();
         }
         
     }//GEN-LAST:event_updateLocationBtnActionPerformed

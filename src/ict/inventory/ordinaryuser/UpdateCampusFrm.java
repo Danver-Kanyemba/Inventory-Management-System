@@ -138,14 +138,13 @@ private String campusNameForDB;
                 updatedep.setString(1, campusUpdate);
                 updatedep.setString(2, campusNameForDB);    //'"+departmentUpdate+"'"  '"+departmentNameForDB+"'";
                 updatedep.executeUpdate();
-                JOptionPane.showMessageDialog(null,"Campus updated");
                 classForConnecting.conn.close();
-               
+                this.dispose();
+                JOptionPane.showMessageDialog(null,"Campus updated");
+
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(UpdateCampusFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
-             this.setVisible(false); 
-                this.dispose();
         }
         
     }//GEN-LAST:event_updateCampusBtnActionPerformed

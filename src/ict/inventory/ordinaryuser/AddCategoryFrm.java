@@ -133,14 +133,15 @@ public class AddCategoryFrm extends javax.swing.JFrame {
                 PreparedStatement queryAddCategory = classForConnecting.conn.prepareStatement(queryAddDept);
                 queryAddCategory.setString(1, categoryName);
                 queryAddCategory.executeUpdate();
-                JOptionPane.showMessageDialog(null,"Category added");
                 classForConnecting.conn.close();
-               
+                this.dispose();
+                JOptionPane.showMessageDialog(null,"Category added");
+
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(AddCategoryFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
-            this.setVisible(false); 
-            this.dispose();
+
+
         }
         
     }//GEN-LAST:event_addLocationBtnActionPerformed

@@ -138,16 +138,13 @@ private String departmentNameForDB;
                 updatedep.setString(1, departmentUpdate);
                 updatedep.setString(2, departmentNameForDB);    //'"+departmentUpdate+"'"  '"+departmentNameForDB+"'";
                 updatedep.executeUpdate();
+                classForConnecting.conn.close();
+                this.dispose();
                 JOptionPane.showMessageDialog(null,"Record updated");
 
-               
-                classForConnecting.conn.close();
-               
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(UpdateDepartmentsNameFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
-             this.setVisible(false); 
-                this.dispose();
         }
         
     }//GEN-LAST:event_updateDepartmentBtnActionPerformed

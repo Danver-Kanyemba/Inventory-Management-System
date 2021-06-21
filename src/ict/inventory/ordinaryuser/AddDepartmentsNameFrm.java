@@ -133,14 +133,14 @@ public class AddDepartmentsNameFrm extends javax.swing.JFrame {
                 PreparedStatement queryAddDepartment = classForConnecting.conn.prepareStatement(queryAddDept);
                 queryAddDepartment.setString(1, departmentName);
                 queryAddDepartment.executeUpdate();
-                JOptionPane.showMessageDialog(null,"Department added");
                 classForConnecting.conn.close();
-               
+                this.dispose();
+                JOptionPane.showMessageDialog(null,"Department added");
+
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(AddDepartmentsNameFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
-            this.setVisible(false); 
-            this.dispose();
+
         }
         
     }//GEN-LAST:event_addDepartmentBtnActionPerformed

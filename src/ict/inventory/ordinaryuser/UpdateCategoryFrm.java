@@ -138,14 +138,14 @@ private String categoryNameForDB;
                 updatedep.setString(1, categoryUpdate);
                 updatedep.setString(2, categoryNameForDB);    //'"+departmentUpdate+"'"  '"+departmentNameForDB+"'";
                 updatedep.executeUpdate();
-                JOptionPane.showMessageDialog(null,"Category updated");               
                 classForConnecting.conn.close();
+                this.dispose();
+                JOptionPane.showMessageDialog(null,"Category updated");               
+
                
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(UpdateCategoryFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
-             this.setVisible(false); 
-                this.dispose();
         }
         
     }//GEN-LAST:event_updateCategoryBtnActionPerformed

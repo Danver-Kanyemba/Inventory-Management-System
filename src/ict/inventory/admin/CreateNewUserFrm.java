@@ -238,6 +238,7 @@ public class CreateNewUserFrm extends javax.swing.JFrame {
                                 + " VALUES( '"+username+"', '"+password+"', '"+roleForUser+"', '"+idForUser+"')";
                         Statement statem = conn.createStatement();
                         statem.executeUpdate(queryAddUser);
+                        this.dispose();
                         JOptionPane.showMessageDialog(null, "User created");
                     } catch (SQLException ex) {
                         Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);

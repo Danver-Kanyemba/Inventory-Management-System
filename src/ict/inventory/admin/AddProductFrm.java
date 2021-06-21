@@ -68,7 +68,7 @@ public class AddProductFrm extends javax.swing.JFrame {
         issueBtn.setBackground(new java.awt.Color(13, 101, 205));
         issueBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         issueBtn.setForeground(new java.awt.Color(255, 255, 255));
-        issueBtn.setText(" Add Product");
+        issueBtn.setText(" Add Stock");
         issueBtn.setBorder(null);
         issueBtn.setBorderPainted(false);
         issueBtn.setFocusPainted(false);
@@ -82,7 +82,7 @@ public class AddProductFrm extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(103, 103, 103));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("Add Product");
+        jLabel18.setText("Add Stock");
 
         productSNTxt.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         productSNTxt.setPreferredSize(new java.awt.Dimension(6, 29));
@@ -293,8 +293,9 @@ public class AddProductFrm extends javax.swing.JFrame {
                     queryProduct.setString(6, categoryId);
                                      
                     queryProduct.executeUpdate();
-                    JOptionPane.showMessageDialog(null,"Employee added");
                     classForConnecting.conn.close();
+                    this.dispose();
+                    JOptionPane.showMessageDialog(null,"Stock added");
 
                 } catch (SQLException ex) {
                     Logger.getLogger(AddProductFrm.class.getName()).log(Level.SEVERE, null, ex);

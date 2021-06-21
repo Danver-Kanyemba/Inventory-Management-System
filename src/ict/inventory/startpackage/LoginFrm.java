@@ -42,13 +42,13 @@ String idForUser="";
         jPanel1 = new javax.swing.JPanel();
         detailsPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        loginBtn = new javax.swing.JButton();
+        viewLoginBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         loginPanel = new javax.swing.JPanel();
         usernameTxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        createUserBtnbyAdmin = new javax.swing.JButton();
+        loginBtn = new javax.swing.JButton();
         passwordTxtpass = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -66,34 +66,34 @@ String idForUser="";
 
         jPanel4.setBackground(java.awt.Color.white);
 
-        loginBtn.setBackground(new java.awt.Color(220, 220, 220));
-        loginBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        loginBtn.setForeground(new java.awt.Color(76, 76, 76));
-        loginBtn.setText("Login");
-        loginBtn.setBorder(null);
-        loginBtn.setContentAreaFilled(false);
-        loginBtn.setFocusPainted(false);
-        loginBtn.setOpaque(true);
-        loginBtn.setPreferredSize(new java.awt.Dimension(75, 29));
-        loginBtn.addFocusListener(new java.awt.event.FocusAdapter() {
+        viewLoginBtn.setBackground(new java.awt.Color(220, 220, 220));
+        viewLoginBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        viewLoginBtn.setForeground(new java.awt.Color(76, 76, 76));
+        viewLoginBtn.setText("Login");
+        viewLoginBtn.setBorder(null);
+        viewLoginBtn.setContentAreaFilled(false);
+        viewLoginBtn.setFocusPainted(false);
+        viewLoginBtn.setOpaque(true);
+        viewLoginBtn.setPreferredSize(new java.awt.Dimension(75, 29));
+        viewLoginBtn.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                loginBtnFocusGained(evt);
+                viewLoginBtnFocusGained(evt);
             }
         });
-        loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        viewLoginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginBtnMouseClicked(evt);
+                viewLoginBtnMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                loginBtnMouseExited(evt);
+                viewLoginBtnMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                loginBtnMouseEntered(evt);
+                viewLoginBtnMouseEntered(evt);
             }
         });
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+        viewLoginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
+                viewLoginBtnActionPerformed(evt);
             }
         });
 
@@ -111,7 +111,7 @@ String idForUser="";
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
-                    .addComponent(loginBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(viewLoginBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -120,7 +120,7 @@ String idForUser="";
                 .addGap(40, 40, 40)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewLoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
@@ -141,19 +141,27 @@ String idForUser="";
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel5.setText("Password:");
 
-        createUserBtnbyAdmin.setBackground(new java.awt.Color(13, 101, 205));
-        createUserBtnbyAdmin.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        createUserBtnbyAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        createUserBtnbyAdmin.setText("Login");
-        createUserBtnbyAdmin.setBorder(null);
-        createUserBtnbyAdmin.setBorderPainted(false);
-        createUserBtnbyAdmin.setContentAreaFilled(false);
-        createUserBtnbyAdmin.setFocusPainted(false);
-        createUserBtnbyAdmin.setOpaque(true);
-        createUserBtnbyAdmin.setPreferredSize(new java.awt.Dimension(75, 29));
-        createUserBtnbyAdmin.addActionListener(new java.awt.event.ActionListener() {
+        loginBtn.setBackground(new java.awt.Color(13, 101, 205));
+        loginBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
+        loginBtn.setText("Login");
+        loginBtn.setBorder(null);
+        loginBtn.setBorderPainted(false);
+        loginBtn.setContentAreaFilled(false);
+        loginBtn.setFocusPainted(false);
+        loginBtn.setOpaque(true);
+        loginBtn.setPreferredSize(new java.awt.Dimension(75, 29));
+        loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loginBtnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginBtnMouseEntered(evt);
+            }
+        });
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createUserBtnbyAdminActionPerformed(evt);
+                loginBtnActionPerformed(evt);
             }
         });
 
@@ -164,7 +172,7 @@ String idForUser="";
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(createUserBtnbyAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(loginBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -189,7 +197,7 @@ String idForUser="";
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordTxtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addComponent(createUserBtnbyAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -270,39 +278,39 @@ String idForUser="";
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtnFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loginBtnFocusGained
+    private void viewLoginBtnFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_viewLoginBtnFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_loginBtnFocusGained
+    }//GEN-LAST:event_viewLoginBtnFocusGained
 
-    private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
+    private void viewLoginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewLoginBtnMouseClicked
         // TODO add your handling code here:
-        loginBtn.setBackground(java.awt.Color.gray);
-        loginBtn.setForeground(new java.awt.Color(64, 64, 64));
+        viewLoginBtn.setBackground(java.awt.Color.gray);
+        viewLoginBtn.setForeground(new java.awt.Color(64, 64, 64));
 
-        loginBtn.setContentAreaFilled(false);
-        loginBtn.setFocusPainted(false);
-        loginBtn.setOpaque(true);
+        viewLoginBtn.setContentAreaFilled(false);
+        viewLoginBtn.setFocusPainted(false);
+        viewLoginBtn.setOpaque(true);
 
 
-    }//GEN-LAST:event_loginBtnMouseClicked
+    }//GEN-LAST:event_viewLoginBtnMouseClicked
 
-    private void loginBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseExited
-loginBtn.setBackground(new java.awt.Color(220, 220, 220));
-    }//GEN-LAST:event_loginBtnMouseExited
+    private void viewLoginBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewLoginBtnMouseExited
+viewLoginBtn.setBackground(new java.awt.Color(220, 220, 220));
+    }//GEN-LAST:event_viewLoginBtnMouseExited
 
-    private void loginBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseEntered
-        loginBtn.setBackground(new java.awt.Color(230, 230, 230));
-    }//GEN-LAST:event_loginBtnMouseEntered
+    private void viewLoginBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewLoginBtnMouseEntered
+        viewLoginBtn.setBackground(new java.awt.Color(230, 230, 230));
+    }//GEN-LAST:event_viewLoginBtnMouseEntered
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+    private void viewLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewLoginBtnActionPerformed
         // TODO add your handling code here:
         detailsPanel.removeAll();
         detailsPanel.add(loginPanel);
         detailsPanel.repaint();
         detailsPanel.revalidate();
-    }//GEN-LAST:event_loginBtnActionPerformed
+    }//GEN-LAST:event_viewLoginBtnActionPerformed
 
-    private void createUserBtnbyAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserBtnbyAdminActionPerformed
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         String username = usernameTxt.getText().toString();
         String password = new String(passwordTxtpass.getPassword());
         boolean isInputCorrect = true;
@@ -339,12 +347,13 @@ loginBtn.setBackground(new java.awt.Color(220, 220, 220));
                             idForUser = rs.getString("user_id");
                             System.out.println(roleForUser);
                         }
-                        JOptionPane.showMessageDialog(null,"Log in successful");
+                      
                         ict.inventory.ordinaryuser.MainMenu MainMenu = new ict.inventory.ordinaryuser.MainMenu(idForUser,username, roleForUser);
                         
                         MainMenu.setVisible(true);
                         this.setVisible(false);
                         this.dispose();
+                        JOptionPane.showMessageDialog(null,"Log in successful");
                         
                     }
                     else{
@@ -364,7 +373,17 @@ loginBtn.setBackground(new java.awt.Color(220, 220, 220));
 
                 }
         }
-    }//GEN-LAST:event_createUserBtnbyAdminActionPerformed
+    }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void loginBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseEntered
+        loginBtn.setBackground(java.awt.Color.gray);
+
+    }//GEN-LAST:event_loginBtnMouseEntered
+
+    private void loginBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseExited
+        loginBtn.setBackground(java.awt.Color.blue);
+
+    }//GEN-LAST:event_loginBtnMouseExited
 
     /**
      * @param args the command line arguments
@@ -402,7 +421,6 @@ loginBtn.setBackground(new java.awt.Color(220, 220, 220));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private static javax.swing.JButton createUserBtnbyAdmin;
     private javax.swing.JPanel detailsPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -413,9 +431,10 @@ loginBtn.setBackground(new java.awt.Color(220, 220, 220));
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JButton loginBtn;
+    private static javax.swing.JButton loginBtn;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JPasswordField passwordTxtpass;
     private static javax.swing.JTextField usernameTxt;
+    private javax.swing.JButton viewLoginBtn;
     // End of variables declaration//GEN-END:variables
 }
