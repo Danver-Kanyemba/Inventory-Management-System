@@ -20,7 +20,7 @@ public class ConnectToDB {
 
     public ConnectToDB() throws ClassNotFoundException, SQLException {
        Class.forName("com.mysql.jdbc.Driver");
-        this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ict_inventory","ict","2000");
+        this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ict_inventory","ict","");
 
 
     }

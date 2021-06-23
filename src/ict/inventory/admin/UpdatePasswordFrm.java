@@ -5,6 +5,7 @@
  */
 package ict.inventory.admin;
 
+import ict.inventory.connectionpackage.ConnectToDB;
 import ict.inventory.ordinaryuser.MainMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,7 +28,6 @@ public class UpdatePasswordFrm extends javax.swing.JFrame {
      */
     public UpdatePasswordFrm(String userid) {
         initComponents();
-        updateUsernameBtnbyAdmin.addActionListener(new updateUsernamebyAdminAction());
         userIdTxt.setText(userid);
     }
 
@@ -45,7 +45,7 @@ public class UpdatePasswordFrm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         passwordTxt = new javax.swing.JTextField();
-        updateUsernameBtnbyAdmin = new javax.swing.JButton();
+        updatePasswordBtnbyAdmin = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         userIdTxt = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -73,19 +73,19 @@ public class UpdatePasswordFrm extends javax.swing.JFrame {
         passwordTxt.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         passwordTxt.setPreferredSize(new java.awt.Dimension(6, 29));
 
-        updateUsernameBtnbyAdmin.setBackground(new java.awt.Color(13, 101, 205));
-        updateUsernameBtnbyAdmin.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        updateUsernameBtnbyAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        updateUsernameBtnbyAdmin.setText("Update Password");
-        updateUsernameBtnbyAdmin.setBorder(null);
-        updateUsernameBtnbyAdmin.setBorderPainted(false);
-        updateUsernameBtnbyAdmin.setContentAreaFilled(false);
-        updateUsernameBtnbyAdmin.setFocusPainted(false);
-        updateUsernameBtnbyAdmin.setOpaque(true);
-        updateUsernameBtnbyAdmin.setPreferredSize(new java.awt.Dimension(75, 29));
-        updateUsernameBtnbyAdmin.addActionListener(new java.awt.event.ActionListener() {
+        updatePasswordBtnbyAdmin.setBackground(new java.awt.Color(13, 101, 205));
+        updatePasswordBtnbyAdmin.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        updatePasswordBtnbyAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        updatePasswordBtnbyAdmin.setText("Update Password");
+        updatePasswordBtnbyAdmin.setBorder(null);
+        updatePasswordBtnbyAdmin.setBorderPainted(false);
+        updatePasswordBtnbyAdmin.setContentAreaFilled(false);
+        updatePasswordBtnbyAdmin.setFocusPainted(false);
+        updatePasswordBtnbyAdmin.setOpaque(true);
+        updatePasswordBtnbyAdmin.setPreferredSize(new java.awt.Dimension(75, 29));
+        updatePasswordBtnbyAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateUsernameBtnbyAdminActionPerformed(evt);
+                updatePasswordBtnbyAdminActionPerformed(evt);
             }
         });
 
@@ -115,12 +115,12 @@ public class UpdatePasswordFrm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(updateUsernameBtnbyAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(updatePasswordBtnbyAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,7 +130,7 @@ public class UpdatePasswordFrm extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(retypePasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 24, Short.MAX_VALUE)))
+                        .addGap(0, 30, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -151,7 +151,7 @@ public class UpdatePasswordFrm extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(retypePasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(updateUsernameBtnbyAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updatePasswordBtnbyAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -178,9 +178,45 @@ public class UpdatePasswordFrm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateUsernameBtnbyAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUsernameBtnbyAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateUsernameBtnbyAdminActionPerformed
+    private void updatePasswordBtnbyAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePasswordBtnbyAdminActionPerformed
+  String password = passwordTxt.getText();
+            String idForUsername = userIdTxt.getText();
+            String reTypePassword = retypePasswordTxt.getText();
+            
+            if(idForUsername.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Error User ID missing");
+            }
+            else{
+                if(password.isEmpty()){
+                        JOptionPane.showMessageDialog(null,"Enter Username");
+                }
+                else{ 
+                    if(password.equals(reTypePassword)){
+                    try {
+                        ConnectToDB classForConnecting = new ConnectToDB();
+                        String queryAddUser = "UPDATE users "
+                                + "SET password =  '"+password+"'"
+                                + " WHERE user_id= '"+idForUsername+"'";
+                        Statement statem = classForConnecting.conn.createStatement();
+                        statem.executeUpdate(queryAddUser);
+                        this.dispose();
+                        JOptionPane.showMessageDialog(null,"Password updated"); 
+                    
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null,"Error updating Password");                
+                        Logger.getLogger(UpdatePasswordFrm.class.getName()).log(Level.SEVERE, null, ex);
+                    }  catch (ClassNotFoundException ex) {
+                           Logger.getLogger(UpdatePasswordFrm.class.getName()).log(Level.SEVERE, null, ex);
+                       }
+                   }
+                   else{
+                       JOptionPane.showMessageDialog(null,"Passwords do not match");                
+
+                   }
+                }
+            }
+            
+    }//GEN-LAST:event_updatePasswordBtnbyAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,57 +264,11 @@ public class UpdatePasswordFrm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private static javax.swing.JTextField passwordTxt;
     private static javax.swing.JTextField retypePasswordTxt;
-    private static javax.swing.JButton updateUsernameBtnbyAdmin;
+    private static javax.swing.JButton updatePasswordBtnbyAdmin;
     public static javax.swing.JLabel userIdTxt;
     // End of variables declaration//GEN-END:variables
-
-    
-
-
-
-    private static class updateUsernamebyAdminAction implements ActionListener {
-
-        public updateUsernamebyAdminAction() {
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String password = passwordTxt.getText();
-            String idForUsername = userIdTxt.getText();
-            
-            if(idForUsername.isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Enter User ID");
-            }
-            else{
-                if(password.isEmpty()){
-                        JOptionPane.showMessageDialog(null,"Enter Username");
-                }
-                else{
-                   if(password.equals(retypePasswordTxt.getText())){
-
-                    try {
-                        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ict_inventory","root","");
-                        String queryAddUser = "UPDATE users "
-                                + "SET password =  '"+password+"'"
-                                + " WHERE user_id= '"+idForUsername+"'";
-                        Statement statem = conn.createStatement();
-                        statem.executeUpdate(queryAddUser);
-                        JOptionPane.showMessageDialog(null,"Record updated");                
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null,"Error updating Record");                
-                        Logger.getLogger(UpdatePasswordFrm.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                   }
-                   else{
-                       JOptionPane.showMessageDialog(null,"Passwords do not match");                
-
-                   }
-                }
-            }
-                
-        }
-    }
 }
+
            
         
     
