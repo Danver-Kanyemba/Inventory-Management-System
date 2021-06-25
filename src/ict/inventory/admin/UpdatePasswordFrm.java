@@ -199,8 +199,10 @@ public class UpdatePasswordFrm extends javax.swing.JFrame {
                                 + " WHERE user_id= '"+idForUsername+"'";
                         Statement statem = classForConnecting.conn.createStatement();
                         statem.executeUpdate(queryAddUser);
+                        classForConnecting.conn.close();
                         this.dispose();
                         JOptionPane.showMessageDialog(null,"Password updated"); 
+                        
                     
                     } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(null,"Error updating Password");                

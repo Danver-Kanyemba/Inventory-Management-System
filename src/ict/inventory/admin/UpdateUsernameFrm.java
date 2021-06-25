@@ -5,6 +5,7 @@
  */
 package ict.inventory.admin;
 
+import ict.inventory.connectionpackage.ConnectToDB;
 import ict.inventory.ordinaryuser.MainMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,7 +28,6 @@ public class UpdateUsernameFrm extends javax.swing.JFrame {
      */
     public UpdateUsernameFrm(String userid,String username) {
         initComponents();
-        updateUsernameBtnbyAdmin.addActionListener(new updateUsernamebyAdminAction());
         userIdTxt.setText(userid);
         usernameTxt.setText(username);
     }
@@ -162,7 +162,37 @@ public class UpdateUsernameFrm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateUsernameBtnbyAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUsernameBtnbyAdminActionPerformed
-        // TODO add your handling code here:
+            String username = usernameTxt.getText();
+            String idForUsername = userIdTxt.getText();
+            
+            if(idForUsername.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Enter User ID");
+            }
+            else{
+                if(username.isEmpty()){
+                        JOptionPane.showMessageDialog(null,"Enter Username");
+                }
+                else{
+                    try {
+                        ConnectToDB classForConnecting = new ConnectToDB(); 
+                        String queryAddUser = "UPDATE users "
+                                + "SET username =  '"+username+"'"
+                                + " WHERE user_id= '"+idForUsername+"'";
+                        Statement statem = classForConnecting.conn.createStatement();
+                        statem.executeUpdate(queryAddUser);                        
+                        classForConnecting.conn.close();
+
+                        this.dispose();
+                        JOptionPane.showMessageDialog(null,"Username updated");
+
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null,"Error updating Record");                
+                        Logger.getLogger(UpdateUsernameFrm.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(UpdateUsernameFrm.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
     }//GEN-LAST:event_updateUsernameBtnbyAdminActionPerformed
 
     /**
@@ -213,45 +243,6 @@ public class UpdateUsernameFrm extends javax.swing.JFrame {
     private static javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
 
-    private static class updateUsernamebyAdminAction implements ActionListener {
-
-        public updateUsernamebyAdminAction() {
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String username = usernameTxt.getText();
-            String idForUsername = userIdTxt.getText();
-            
-            if(idForUsername.isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Enter User ID");
-            }
-            else{
-                if(username.isEmpty()){
-                        JOptionPane.showMessageDialog(null,"Enter Username");
-                }
-                else{
-                    try {Class.forName("com.mysql.jdbc.Driver");
-                        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ict_inventory","root","");
-                        String queryAddUser = "UPDATE users "
-                                + "SET username =  '"+username+"'"
-                                + " WHERE user_id= '"+idForUsername+"'";
-                        Statement statem = conn.createStatement();
-                        statem.executeUpdate(queryAddUser);
-
-                        
-                        JOptionPane.showMessageDialog(null,"Record updated");                
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null,"Error updating Record");                
-                        Logger.getLogger(UpdateUsernameFrm.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(UpdateUsernameFrm.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-                
-        }
-    }
 }
            
         
