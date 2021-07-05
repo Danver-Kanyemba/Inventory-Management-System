@@ -9,7 +9,9 @@
             <file>file:/home/danverk/NetBeansProjects/ict_inventory/src/ict/inventory/ordinaryuser/MainMenu.java</file>
             <file>file:/home/danverk/NetBeansProjects/ict_inventory/src/ict/inventory/admin/AddProductFrm1TEMPLATE.java</file>
             <file>file:/home/danverk/NetBeansProjects/ict_inventory/src/ict/inventory/admin/ModifyUsersFrm.java</file>
+            <file>file:/home/danverk/NetBeansProjects/ict_inventory/src/ict/inventory/startpackage/LoginFrm.java</file>
             <file>file:/home/danverk/NetBeansProjects/ict_inventory/src/ict/inventory/connectionpackage/ConnectToDB.java</file>
+            <file>file:/home/danverk/NetBeansProjects/ict_inventory/src/aboutPackage/AboutFrm.java</file>
         </group>
     </open-files>
 </project-private>

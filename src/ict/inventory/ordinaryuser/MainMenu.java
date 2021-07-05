@@ -209,7 +209,7 @@ public class MainMenu extends javax.swing.JFrame {
         DepartmentPanelMenuBtn = new javax.swing.JMenuItem();
         showUsersMenuBtn = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        aboutBtn = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -347,7 +347,6 @@ public class MainMenu extends javax.swing.JFrame {
 
         infoLbl.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         infoLbl.setForeground(new java.awt.Color(255, 255, 255));
-        infoLbl.setText("Info");
 
         usernameLbl.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         usernameLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -1872,8 +1871,13 @@ public class MainMenu extends javax.swing.JFrame {
 
         jMenu3.setText("Help");
 
-        jMenuItem3.setText("About");
-        jMenu3.add(jMenuItem3);
+        aboutBtn.setText("About");
+        aboutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutBtnActionPerformed(evt);
+            }
+        });
+        jMenu3.add(aboutBtn);
 
         jMenuBar1.add(jMenu3);
 
@@ -2697,6 +2701,10 @@ String data = null;
                 
     }//GEN-LAST:event_updateProductMenuItemActionPerformed
 
+    private void aboutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBtnActionPerformed
+        
+    }//GEN-LAST:event_aboutBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3242,6 +3250,7 @@ public ArrayList<EmployeeAndProducts> searchEmployeeAndProductList(){
     private static javax.swing.JPanel DepartmentPanel;
     private javax.swing.JMenuItem DepartmentPanelMenuBtn;
     private javax.swing.JPanel IssuePanel2;
+    private javax.swing.JMenuItem aboutBtn;
     private static javax.swing.JButton addCampusBtn;
     private static javax.swing.JButton addCategoryBtn;
     private static javax.swing.JButton addDepartmentBtn;
@@ -3296,7 +3305,6 @@ public ArrayList<EmployeeAndProducts> searchEmployeeAndProductList(){
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel3;
